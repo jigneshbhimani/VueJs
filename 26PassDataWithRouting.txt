@@ -1,0 +1,73 @@
+Pass data with Routing in Vue Js
+- Add some fake user list in Home
+- Define Route with params
+- Open new route on click
+- Get data from route
+
+1) Make a new component
+
+- src/components/Home.vue:
+        <template>
+            <h1>Home Page</h1>
+            <p><router-link to="user/1">Ajay</router-link></p>                                  // data
+            <p><router-link to="user/2">Devang</router-link></p>                                // data
+            <p><router-link to="user/3">Keval</router-link></p>                                 // data
+            <p><router-link to="user/4">Jignesh</router-link></p>                               // data
+        </template>
+
+        <script>
+        export default {
+            name: 'Home',
+        }
+        </script>
+
+2) Make a new component
+
+- src/components/User.vue:
+        <template>
+            <h1>User Page</h1>
+            <h2>User Id is {{userId}}</h2>
+        </template>
+
+        <script>
+        export default {
+            name: 'User',
+            data(){
+                return{userId:this.$route.params.id}                                // add this line
+            }
+        }
+        </script>
+
+
+3) After make a new component import in main.js
+
+- src/main.js:
+        import Vue from 'vue'
+        import App from './App.vue'
+        import VueRouter from 'vue-router';   
+        import About from './components/User'                       // import User component
+        import Home from './components/Home'  
+
+        Vue.use(VueRouter)                    
+
+        const routes = [                      
+            {
+                path:'/',                     
+                component:Home                
+            },
+            {
+                path:'/user/:id',                                       // Given path (User Page)                      // Given Id as a key of user
+                component:User                                          // Given component (User Page)
+            },
+        ]
+
+        const router = new VueRouter({        
+            routes
+        })
+
+        Vue.config.productionTip = false
+
+        new Vue({
+            router: router
+            render: h => h(App),
+        }).$mount('#app')

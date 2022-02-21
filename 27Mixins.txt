@@ -1,0 +1,79 @@
+1) Make 2 components 
+
+- src/components/MixinA: 
+        <template>
+            <div>
+                <h3>MixinA</h3>
+                <button @click="incrementData"> click {{count}}</button>
+            </div>
+        </template>
+
+        <script>
+        import CountOne from "../../mixins/countOne";       
+        export default {
+            name: 'MixinA',
+            mixins: [CountOne]                                                          // mixins/countOne file ka code ko fetch karega
+        }
+        </script>
+
+- src/components/MixinB: 
+        <template>
+            <div>
+                <h3>MixinB</h3>
+                <button @click="incrementData"> click {{count}}</button>
+            </div>
+        </template>
+
+        <script>
+        import CountOne from "../../mixins/countOne";                                  
+        export default {
+            name: 'MixinB',
+            mixins: [CountOne]                                                          // mixins/countOne file ka code ko fetch karega
+        }
+        </script>
+
+2) Import both components in App.vue file
+
+- src/App.vue: 
+        <template>
+            <div id="app">
+                <MixinA />
+                <h2>============</h2>
+                <MixinB />                                     
+            </div>
+        </template>
+
+        <script>
+        import MixinA from "./components/MixinA.vue";
+        import MixinB from "./components/MixinB.vue";           
+        export default {
+         name: "App",
+         components: {
+                MixinA,
+                MixinB
+            },
+        };
+        </script>
+
+
+- Every time we make a new component and this mixins so this is too long 
+
+3) so we can make a folder
+
+- src/mixins:
+
+4) After the creating a folder we can make a file in this folder
+
+- src/mixins/countOne.js:
+        export default{
+            data(){
+                return{
+                    count:0
+                }
+            },
+            methods: {
+                incrementData(){
+                    this.count += 1;
+                }
+            }
+        }

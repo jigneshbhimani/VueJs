@@ -1,0 +1,36 @@
+- You can apply v-model directive to an <input>, <select>, <textarea>, or a component.
+- It's use creates a two way binding between the element and the data attribute.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>v-model</title>
+    <link rel="stylesheet" href="4.0.0-alpha.5.bootstrap-flex.min.css">
+</head>
+
+<body class="container">
+
+<div id="app1">
+    <h2>{{ message }}</h2>
+    <input v-model="message" class="form-control">                                  -> v-model used in this line
+</div>
+
+<script src="vue.js"></script>
+<script>
+    new Vue({
+        el: '#app1',
+        data: {
+            message: 'It's just that easy'
+        }
+    })
+</script>
+</body>
+</html>
+
+
+
+
+
+- Output:
+Hu kai pan lakhu input type ma a mane upar show karse.

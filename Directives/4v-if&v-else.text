@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>v-if</title>
+    <link rel="stylesheet" href="4.0.0-alpha.5.bootstrap-flex.min.css">
+</head>
+
+<body class="container">
+
+<div id="app1">
+    <h2 v-if="!message" class="text-info">Enter text to send a message</h2>                     -> v-if used in this line
+    <h2 v-else class="text-success">Click "Send Message" to send</h2>                           -> v-else used in this line
+    <textarea v-model="message" class="form-control"></textarea>                                -> v-model used in this line
+    <br>
+    <button v-show="message" class="btn">Send Message</button>                                  -> v-show used in this line
+</div>
+
+<script src="vue.js"></script>
+<script>
+    new Vue({
+        el: '#app1',
+        data: {
+            message: ''
+        }
+    })
+</script>
+</body>
+</html>
+
+
+
+
+
+- Output:
+Jo apde message Type karisu to 'Enter text to send a message' ni jagya a 'Click "Send Message" to send' aavi jase and 'Send Message' nu button bhi show karse.

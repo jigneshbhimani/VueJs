@@ -1,0 +1,46 @@
+- Loop over an Object with v-for:
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>v-for over an Object</title>
+    <link rel="stylesheet" href="4.0.0-alpha.5.bootstrap-flex.min.css">
+</head>
+
+<body class="container">
+
+<div id="app1">
+    <h2>One great car</h2>
+    <ul class="list-group">
+        <li v-for="(value, property) in car" class="list-group-item">                                       -> v-for used in this line
+            The value of the <b>{{ property }}</b> property is <b>{{ value }}</b>
+        </li>
+    </ul>
+</div>
+
+</body>
+<script type="text/javascript" src="vue.js"></script>
+<script type="text/javascript">
+    new Vue({
+        el: '#app1',
+        data: {
+            car: {
+                make: "Tesla",
+                model: 'Model S',
+                color: 'Gray'
+            }
+        }
+    })
+</script>
+</html>
+
+
+
+
+
+- Output:
+One great car
+The value of the make property is Tesla
+The value of the model property is Model S
+The value of the color property is Gray

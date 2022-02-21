@@ -1,0 +1,37 @@
+How to make a Form in Vue Js
+- Make 2 input field
+- Define property for form
+- Bind input field with property
+- Submit form
+
+1) Make a component:
+
+- src/components/Login.vue:
+        <template>
+            <div>
+                <input type="text" name="Username" placeholder="enter user name" v-model="loginForm.username" /> <br><br>
+                <input type="password" name="Password" placeholder="enter user password" v-model="loginForm.password" /> <br><br>
+                <button v-on:click="loginData">Login</button>
+
+            </div>
+        </template>
+
+        <script>
+        export default {
+            name: 'Login',
+            methods:{
+                loginData(){                                                                        // for Login Button
+                    console.log("loginData",this.loginForm.username,this.loginForm.password);
+                }
+            },
+            data(){
+                return{
+                    loginForm:{                                                 // for Input field
+                        username:null,
+                        password:null
+                    }
+                }
+            }
+        }
+
+- import this component in App.vue

@@ -1,0 +1,61 @@
+Fetch Get API
+- install axios and vue-axios
+- make component
+- use mounted life cycle hooks for call API
+- fetch api with axios
+- use v-for for show list of data
+
+ api url - https://dummy.restapiexample.com/api/v1/employees
+
+1) Insatll axios and vue-axios
+npm i axios vue-axios
+
+2) Make a component
+
+- src/components/EmployeeList.vue
+        <template>
+            <h1>Employee List</h1>
+            <div>
+                <table border="1px">
+                    <tr>
+                        <td>Name</td>
+                        <td>Salary</td>
+                        <td>Age</td>
+                    </tr>
+                    <tr v-for="item in list" v-bind:key="item.id">                              // use v-for for show list of data
+                        <td>{{item.employee_name}}</td>
+                        <td>{{item.employee_salary</td>
+                        <td>{{item.employee_age}}</td>
+                    </tr>
+                </table>
+            </div>
+        </template>
+
+        <script>
+
+        import Vue from 'vue';                                              // import this
+        import VueAxios from 'vue-axios';                                   // import this
+        import axios from 'axios';                                          // import this
+
+        Vue.use(VueAxios,axios);                                            // add this line
+
+        export default {
+            name: 'EmployeeList',
+            data(){                                                         // data k andar list ko defined kiya
+                return {
+                    list:undefined,
+                }
+            },
+            mounted()                                                                               // mounted method use
+            {   
+                Vue.axios.get('https://dummy.restapiexample.com/api/v1/employees')                  // API fetch it
+                .then(resp=>{
+                    this.list = resp.data.data
+                    console.warn(resp.data.data)
+                })
+            }
+        }
+        </script>
+
+
+2) Import EmployeeList component in App.vue file

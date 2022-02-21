@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>v-else-if</title>
+    <link rel="stylesheet" href="4.0.0-alpha.5.bootstrap-flex.min.css">
+</head>
+
+<body class="container">
+
+<div id="app1">
+    <h3 v-if="message == 'one'" class="text-info">You typed 'one' <small>- now try 'two' or 'three'</small></h3>                        -> v-if used in this line
+    <h3 v-else-if="message == 'two'" class="text-warning">You typed 'two' <small>- now try 'one' or 'three'</small></h3>                -> v-else-if used in this line
+    <h3 v-else-if="message == 'three'" class="text-danger">You typed 'three' <small>- now try 'one' or 'two'</small></h3>               -> v-else-if used in this line
+    <h3 v-else>Type 'one', 'two', or 'three'</h3>                                                                                       -> v-else used in this line
+    <textarea v-model="message" class="form-control"></textarea>                                                                        -> v-model used in this line
+</div>
+
+<script src="vue.js"></script>
+<script>
+    new Vue({
+        el: '#app1',
+        data: {
+            message: ''
+        }
+    })
+</script>
+</body>
+</html>
+
+
+
+
+
+- Output:
+If I can write 'one' then we show -> You typed 'one' - now try 'two' or 'three' -> Skyblue Color because of class="text-info"
+If I can write 'two' then we show -> You typed 'two' - now try 'one' or 'three' -> Orange Color because of class="text-warning"
+If I can write 'three' then we show -> You typed 'three' - now try 'one' or 'two' -> Red Color because of class="text-danger"

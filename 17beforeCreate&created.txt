@@ -1,0 +1,28 @@
+- beforeCreate and created life cycle hooks
+
+1) Make a component
+
+- src/components/Home.vue:
+        <template>
+            <div>
+                <h1>{{name}}</h1>
+            </div>
+        </template>
+
+        <script>
+        export default {
+            name: 'Home',
+            data(){
+                return{
+                    name: "Jignesh"
+                }
+            },
+            beforeCreate(){
+                console.warn("before")
+            },
+            created(){
+                this.name="Bhimani"
+                console.warn("created",this.name)
+            }
+        }
+        </script>

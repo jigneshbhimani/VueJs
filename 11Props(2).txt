@@ -1,0 +1,55 @@
+Send Props Child to Parent
+- Make a child component
+- Call a function on button click
+- Emit a event from function
+- call parent component function with event emmiter
+- Update Title
+
+1) Make a Child Component
+
+- src/components/Child.vue:
+        <template>
+            <div>
+                <button v-on:click="updateTitle">Update Parent Title</button>           // v-on:click="updateTitle"
+            </div>
+        </template>
+
+        <script>
+        export default {
+            name: 'Child',
+            methods:{
+                updateTitle(){                                                  // updateTitle() method define
+                    this.$emit('changeTitle','props updated title');            // $emit ma changeTitle use karyu
+                }
+            }
+        }
+        </script>
+
+- src/App.vue:
+        <template>
+            <div id="app">
+                <h1>{{title}}</h1>
+                <Child v-on:changeTitle="updateTitle($event)"/>             // v-on:changeTitle="updateTitle($event)"
+            </div>
+        </template>
+
+        <script>
+        import Child from './components/Child.vue'
+        export default {
+            name: 'App',
+            components:{
+                Chilld
+            },
+            data(){
+                return{
+                    title: 'Props Tutorial'
+                }
+            },
+            methods:{
+                updateTitle(){                                                 // Update Title
+                    this.title = title
+                }
+            }
+        }
+        </script>
+

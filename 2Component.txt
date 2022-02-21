@@ -1,0 +1,79 @@
+Start with code and make a component
+install vetur extension for vue code readability
+what is component
+make a Home component
+Define props and export component
+Import and use component
+
+
+1) How to make a component?
+
+- src/components/Home.vue:
+        <template>
+            <h1>Hello from Home component</h1>
+        </template>
+
+        <script>
+        export default {
+            name: 'Home'
+        }
+        </script>
+
+
+2) How to import component in App.vue?
+
+- src/App.vue: 
+        <template>
+            <div id="app">
+                <Home />                                    // Home (Use Karne K Liye)
+            </div>
+        </template>
+
+        <script>
+        import Home from "./components/Home.vue";           // import component from components
+        export default {
+        name: "App",
+        components: {
+                Home,           // add this (component name)
+            },
+        };
+        </script>
+
+
+3) How to use Props?
+
+- src/App.vue:
+        <template>
+            <div id="app">
+                <Home data="World Is Beautiful" msg="World is Great"/>           // add this line
+            </div>
+        </template>
+
+        <script>
+        import Home from "./components/Home.vue";        
+        export default {
+            name: "App",
+            components: {
+                Home,         
+            },
+        };
+        </script>
+
+- src/components/Home.vue:
+        <template>  
+            <div>               
+                <h1>Hello from Home component</h1>
+                <h2>{{data}}</h2>                               // add this line
+                <h2>{{msg}}</h2>                               // add this line
+            </div>
+        </template>
+
+        <script>
+        export default {
+            name: 'Home',
+            props: {                                            // add this line
+                data: String,                                   // add this line
+                msg: String                                     // add this line
+            }                                                   // add this line
+        }
+        </script>

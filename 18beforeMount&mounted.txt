@@ -1,0 +1,28 @@
+- beforeMount and mounted life cycle hooks in Vue Js
+
+1) Make a component
+
+- src/components/Home.vue:
+        <template>
+            <div>
+                <h1 id="demo">{{name}}</h1>
+            </div>
+        </template>
+
+        <script>
+        export default {
+            name: 'Home',
+            data(){
+                return{
+                    name: "Jignesh"
+                }
+            },
+            beforeMount(){
+                console.warn("beforeMount",document.getElementById("demo"))                                 // "beforeMount"->this.$el => console ma Undefined show karse
+            },
+            mounted(){
+                this.name="Bhimani"
+                console.warn("mounted",document.getElementById("demo"))                           // "mounted"->this.$el => console ma html show karse
+            }
+        }
+        </script>

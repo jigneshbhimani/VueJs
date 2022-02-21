@@ -1,0 +1,62 @@
+beforeDestroy and destroy life cycle hooks in Vue Js
+- Make toggle feature with button
+- define beforeDestroy and destroy method and use them
+
+1) Make a component
+
+- src/components/Home.vue:
+        <template>
+            <div>
+                <h1>{{name}}</h1>
+            </div>
+        </template>
+
+        <script>
+        export default {
+            name: 'Home',
+            data(){
+                return{
+                    name: "Home Component"
+                }
+            },
+            beforeDestroy(){
+                alert("before");
+                console.warn("beforeDestroy")                                
+            },
+            destroy(){
+                alert("destroy");
+                console.warn("destroyed")
+            }
+        }
+        </script>
+
+- src/App.vue
+
+        <template>
+            <div id="app">
+                <div v-if="display">
+                    <Home />
+                </div>
+                <button v-on:click="toggle">Toggle</button>
+            </div>
+        </template>
+
+        <script>
+        import Home from './components/Home.vue'
+        export default {
+            name: 'App',
+            components:{
+                Home
+            },
+            data(){
+                return{
+                    display:true
+                }
+            },
+            methods:{
+                toggle(){
+                    this.display=!this.display
+                }
+            }
+        }
+        </script>

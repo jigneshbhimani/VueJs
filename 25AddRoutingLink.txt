@@ -1,0 +1,170 @@
+Add Routing Link 
+- Where we should define router link
+- Define Link for current routing
+- Make one more router
+
+1) Install Vue-Router
+- npm install vue-router
+
+2) Import router in main.js file
+
+- src/main.js:
+        import Vue from 'vue'
+        import App from './App.vue'
+        import VueRouter from 'vue-router';   
+        import About from './components/About'
+        import Home from './components/Home'  
+
+        Vue.use(VueRouter)                    
+
+        const routes = [                      
+            {
+                path:'/',                     
+                component:Home                
+            },
+            {
+                path:'/about',                
+                component:About               
+            }
+        ]
+
+        const router = new VueRouter({        
+            routes
+        })
+
+        Vue.config.productionTip = false
+
+        new Vue({
+            router: router
+            render: h => h(App),
+        }).$mount('#app')
+
+
+3) Make a two new components
+
+- src/components/Home.vue:
+        <template>
+            <h1>Home Page</h1>
+        </template>
+
+        <script>
+        export default {
+            name: 'Home'
+        }
+        </script>
+
+- src/components/About.vue:
+        <template>
+            <h1>About Page</h1>
+        </template>
+
+        <script>
+        export default {
+            name: 'About'
+        }
+        </script>
+
+
+4) Add <router-view> in App.vue
+
+- src/App.vue:
+        <template>
+            <div id="app">
+                <router-view></router-view>
+            </div>
+        </template>
+
+        <script>
+        export default {
+            name: "App",
+            components: {
+            }
+        };
+        </script>
+
+5) Now check the URL: 
+- localhost:8080/#/        (Home Page)
+- localhost:8080/#/about   (About Page)
+
+6) How to define router link?
+
+- src/App.vue:
+        <template>
+            <div id="app">
+                <nav>
+                    <ul>
+                        <li>
+                            <router-link to="/">Home</router-link>                                              //  add router-link for home component and home page
+                        </li>
+                        <li>
+                            <router-link to="/about">About</router-link>                                        //  add router-link for about component and about page
+                        </li>
+                        <li>
+                            <router-link to="/settings">Settings</router-link>                                  //  add router-link for settings component and settings  page
+                        </li>
+                    </ul>
+                </nav>
+                <router-view></router-view>
+            </div>
+        </template>
+
+        <script>
+        export default {
+            name: "App",
+            components: {
+            }
+        };
+        </script>
+
+
+7) Make a one more component
+
+- src/components/Settings.vue:
+        <template>
+            <h1>Setting Page</h1>
+        </template>
+
+        <script>
+        export default {
+            name: 'Settings'
+        }
+        </script>
+
+8) After make a new component import in main.js
+
+- src/main.js:
+        import Vue from 'vue'
+        import App from './App.vue'
+        import VueRouter from 'vue-router';   
+        import About from './components/About'
+        import Home from './components/Home'  
+        import Settings from './components/Settings'       // import Settings component
+
+        Vue.use(VueRouter)                    
+
+        const routes = [                      
+            {
+                path:'/',                     
+                component:Home                
+            },
+            {
+                path:'/about',                
+                component:About               
+            },
+            {
+                path:'/settings',                                       // Given Path (Settings Page)
+                component:Settings                                      // Given components (Settings Page)
+            }
+        ]
+
+        const router = new VueRouter({        
+            routes
+        })
+
+        Vue.config.productionTip = false
+
+        new Vue({
+            router: router
+            render: h => h(App),
+        }).$mount('#app')
+

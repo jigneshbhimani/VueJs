@@ -1,0 +1,188 @@
+Template in Vue Js
+- what is template
+- Display normal property
+- Make button click
+- constant tag value
+- operators
+- add html as property
+- Disable Button
+
+1) How to display normal property?
+
+- src/components/Home.vue:
+        <template>  
+            <div>               
+                <h1>Template in Vue Js</h1>
+                <h3>{{name}}</h3>                               
+                <h3>{{a+b}}}</h3>
+            </div>
+        </template>
+
+        <script>
+        export default {
+            name: 'Home',
+            data(){
+                return{
+                    name: "Anil",
+                    a=10,
+                    b=20
+                }
+            }
+        }
+        </script>
+
+
+2) How to make button click?
+
+- src/components/Home.vue:
+        <template>  
+            <div>               
+                <h1>Template in Vue Js</h1>
+                <h3 v-once>{{name}}</h3>                                                    // v-once
+                <h3>{{name}}</h3>
+                <button v-on:click="updateText">Click Me</button>                           // v-on:click="updateText" method
+            </div>
+        </template>
+
+        <script>
+        export default {
+            name: 'Home',
+            data(){
+                return{
+                    name: "Anil",
+                }
+            },
+            methods:{                                                                        // define method (updateText)
+                updateText(){                                                   
+                    this.name = "John"
+                }
+            }
+        }
+        </script>
+
+
+3) How to use normal Operators?
+
+- src/components/Home.vue:
+        <template>  
+            <div>               
+                <h1>Template in Vue Js</h1>
+                <h3 v-once>{{name}}</h3>                                                   
+                <h3>{{name}}</h3>
+                <h3>{{ok?"YES":"NO"}}</h3>                                  // define operators
+                <button v-on:click="updateText">Click Me</button>                           
+            </div>
+        </template>
+
+        <script>
+        export default {
+            name: 'Home',
+            data(){
+                return{
+                    name: "Anil",
+                    ok: true,                                       // If ok is true then show YES, If ok is false then show NO
+                }
+            },
+            methods:{                                                                        
+                updateText(){                                                   
+                    this.name = "John"
+                }
+            }
+        }
+        </script>
+
+
+4) How to use normal Operators with button click?
+
+- src/components/Home.vue:
+        <template>  
+            <div>               
+                <h1>Template in Vue Js</h1>
+                <h3 v-once>{{name}}</h3>                                                   
+                <h3>{{name}}</h3>
+                <h3>{{ok?"YES":"NO"}}</h3>                                  // define operators
+                <button v-on:click="updateText">Click Me</button>                           
+            </div>
+        </template>
+
+        <script>
+        export default {
+            name: 'Home',
+            data(){
+                return{
+                    name: "Anil",
+                    ok: true,                                       
+                }
+            },
+            methods:{                                                                        
+                updateText(){                                                   
+                    this.ok = !this.ok;                             // If I click button then show YES and again I click button then show NO
+                }
+            }
+        }
+        </script>
+
+
+5) How to add html as property?
+
+- src/components/Home.vue:
+        <template>  
+            <div>      
+                <p v-html="rowHtml"></p>                                                 // that html print here using v-html="rowHtml"
+                <h3 v-once>{{name}}</h3>                                                   
+                <h3>{{name}}</h3>
+                <h3>{{ok?"YES":"NO"}}</h3>                                  
+                <button v-on:click="updateText">Click Me</button>                           
+            </div>
+        </template>
+
+        <script>
+        export default {
+            name: 'Home',
+            data(){
+                return{
+                    name: "Anil",
+                    ok: true,    
+                    rowHtml: "<h1>Template in Vue Js</h1>"                  // html as a property                  
+                }
+            },
+            methods:{                                                                        
+                updateText(){                                                   
+                    this.ok = !this.ok;                             
+                }
+            }
+        }
+        </script>
+
+
+6) How to disable button?
+
+- src/components/Home.vue:
+        <template>  
+            <div>      
+                <p v-html="rowHtml"></p>                                                 
+                <h3 v-once>{{name}}</h3>                                                   
+                <h3>{{name}}</h3>
+                <h3>{{ok?"YES":"NO"}}</h3>                                  
+                <button v-bind:disable="disableBtn" v-on:click="updateText">Click Me</button>               // define property v-bind:disable="disableBtn"                      
+            </div>
+        </template>
+
+        <script>
+        export default {
+            name: 'Home',
+            data(){
+                return{
+                    name: "Anil",
+                    ok: true,    
+                    rowHtml: "<h1>Template in Vue Js</h1>",  
+                    disableBtn: true                                                    // Disable button property     // true=disable and false=enable      
+                }
+            },
+            methods:{                                                                        
+                updateText(){                                                   
+                    this.ok = !this.ok;                             
+                }
+            }
+        }
+        </script>

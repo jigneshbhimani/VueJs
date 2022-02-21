@@ -1,0 +1,102 @@
+define data function
+use if directive
+make button and apply conditional with button Click
+how to use else if
+
+
+1) How to use v-if?
+
+- src/components/Home.vue:
+        <template>  
+            <div>               
+                <h1 v-if="show">Conditional Rendering v-if</h1>                           // add v-if="show"
+            </div>
+        </template>
+
+        <script>
+        export default {
+            name: 'Home',
+            data(){
+                return {
+                    show:true                      // if true then show Conditional Rendering, if false then not show Conditional Rendering
+                }
+            }             
+        }
+        </script>
+
+
+2) How to use v-if and v-else together?
+
+- src/components/Home.vue:
+        <template>  
+            <div>               
+                <h1 v-if="show">Conditional Rendering v-if</h1>                            
+                <h1 v-else>Conditional Rendering v-else</h1>                               // add v-else
+            </div>
+        </template>
+
+        <script>
+        export default {
+            name: 'Home',
+            data(){
+                return {
+                    show:true                    // if false then show Conditional Rendering v-else line, if true then show Conditional Rendering v-if line
+                }
+            }             
+        }
+        </script>
+
+
+3) How to use with Button Click with v-if?
+
+- src/components/Home.vue:
+        <template>  
+            <div>               
+                <h1 v-if="show">Conditional Rendering v-if</h1> 
+                <button>Toggle Element</button>                                           // add this line                         
+            </div>
+        </template>
+
+        <script>
+        export default {
+            name: 'Home',
+            data(){
+                return {
+                    show:true                    
+                }
+            },
+            methods:{
+                display(){
+                    this.show = !this.show;                         // If I can click Toggle Element then show Conditional Rendering v-if, again i click then hide Conditional Rendering v-if
+                }
+            }             
+        }
+        </script>
+
+
+4) How to use with Button Click with v-if and v-else?
+
+- src/components/Home.vue:
+        <template>  
+            <div>               
+                <h1 v-if="show">Conditional Rendering v-if</h1> 
+                <h1 v-else>Conditional Rendering v-else</h1>  
+                <button>Toggle Element</button>                                           // add this line                         
+            </div>
+        </template>
+
+        <script>
+        export default {
+            name: 'Home',
+            data(){
+                return {
+                    show:true                    
+                }
+            },
+            methods:{
+                display(){
+                    this.show = !this.show;                         // If I can click Toggle Element then show Conditional Rendering v-if, again i click then show Conditional Rendering v-else
+                }
+            }             
+        }
+        </script>

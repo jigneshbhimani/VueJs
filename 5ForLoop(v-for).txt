@@ -1,0 +1,42 @@
+Make data function
+Define a array of objects
+Make a table
+Use v-for directive for loop
+
+
+1) How to define for loop?
+
+- src/components/Home.vue:
+        <template>  
+            <div>               
+                <h1>For Loop</h1> 
+                <table border="1px">                                                // add whole table
+                    <tr>
+                        <td>Id</td>
+                        <td>Name</td>
+                        <td>Email</td>
+                    </tr>
+                    <tr v-for="user in users :key="user.id">                            // v-for
+                        <td>{{user.id}}</td>
+                        <td>{{user.name}}</td>
+                        <td>{{user.email}}</td>
+                    </tr>
+                </table> 
+            </div>
+        </template>
+
+        <script>
+        export default {
+            name: 'Home',
+            data(){                                                                                 // add whole data function
+                return{
+                    users:[
+                        {id:1,name: 'John',email: 'john@example.com'},
+                        {id:2,name: 'Mike',email: 'mike@example.com'},
+                        {id:3,name: 'Jay',email: 'jay@example.com'},
+                        {id:4,name: 'Raj',email: 'raj@example.com'},
+                    ]
+                }
+            }         
+        }
+        </script>

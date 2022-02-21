@@ -1,0 +1,17 @@
+1) What is VueJS?
+- JavaScript Framework such as angular
+- Lightweight framework and size is 18-21 KB
+- Yes, This is frontend framework and used for single page application
+- High run time performance
+
+2) How to Install VueJs?
+- install vue CLI : npm install -g @vue/cli
+- Check installed or not
+- make project with CLI
+
+3) How to make a new project?
+- globally Install Vue : sudo npm install -g @vue/cli
+- check version : vue --version
+- create new project : vue create project_name
+- go to project folder : cd project_name
+- run server : npm run serve

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>v-show</title>
+    <link rel="stylesheet" href="4.0.0-alpha.5.bootstrap-flex.min.css">
+</head>
+
+<body class="container">
+
+<div id="app1">
+    <h2>Enter text to send a message</h2>
+    <textarea v-model="message" class="form-control"></textarea>                            -> v-model used in this line
+    <br>
+    <button v-show="message" class="btn">Send Message</button>                              -> v-show used in this line
+</div>
+
+<script src="vue.js"></script>
+
+<script>
+    new Vue({
+        el: '#app1',
+        data: {
+            message: ''
+        }
+    })
+</script>
+</body>
+</html>
+
+
+
+
+
+- Output:
+Consider you have a text area where a user can type to send a message.
+Initially, that text area will be blank of course.
+If there is no text to be sent, well then maybe we should not provide a button for which to try and send that message.
+If the user begins typing some text however, it now makes sense to provide a button to send that text.

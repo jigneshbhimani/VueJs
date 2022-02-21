@@ -1,0 +1,89 @@
+Vue Routing
+- Install Vue package
+- Import Component
+- Make Routers
+- Register Router
+- Test
+
+1) Install Vue-Router
+- npm install vue-router
+
+2) Import router in main.js file
+
+- src/main.js:
+        import Vue from 'vue'
+        import App from './App.vue'
+        import VueRouter from 'vue-router';                                                 // import router 
+        import About from './components/About'                                              // After make a About component then after import here
+        import Home from './components/Home'                                                // After make a Home component then after import here
+
+        Vue.use(VueRouter)                                                                  // Use VueRouter
+
+        const routes = [                                                                // Create routes
+            {
+                path:'/',                                                               // Given Path (Home component)
+                component:Home                                                          // Given Components (Home component)
+            },
+            {
+                path:'/about',                                                          // Given Path (About component)
+                component:About                                                         // Given Components (About component)
+            }
+        ]
+
+        const router = new VueRouter({                                                  // object defined for routes
+            routes
+        })
+
+        Vue.config.productionTip = false
+
+        new Vue({
+            router: router
+            render: h => h(App),
+        }).$mount('#app')
+
+
+3) Make a two new components
+
+- src/components/Home.vue:
+        <template>
+            <h1>Home Page</h1>
+        </template>
+
+        <script>
+        export default {
+            name: 'Home'
+        }
+        </script>
+
+- src/components/About.vue:
+        <template>
+            <h1>About Page</h1>
+        </template>
+
+        <script>
+        export default {
+            name: 'About'
+        }
+        </script>
+
+
+4) Add <router-view> in App.vue
+
+- src/App.vue:
+        <template>
+            <div id="app">
+                <router-view></router-view>                                     // add this after making a routers
+            </div>
+        </template>
+
+        <script>
+        export default {
+            name: "App",
+            components: {
+            }
+        };
+        </script>
+
+5) Now check the URL: 
+- localhost:8080/#/        (Home Page)
+- localhost:8080/#/about   (About Page)

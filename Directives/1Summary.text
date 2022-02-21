@@ -1,0 +1,11 @@
+Vue JS Directives Summary:
+
+1. v-model
+2. v-show -> used to conditionally disply an element(css based)
+3. v-if -> used to conditionally render an element
+4. v-else-if -> serves as an "else if block" for v-if and can be chained multiple times
+5. v-else -> displays an element when v-if evaluates to false
+6. v-for -> iterate over a range, an array, an object, or an array of objects
+7. v-on -> listen to various DOM events(click,keyup,submit,...)
+8. v-bind -> used to dynamically bind one or more attributes, or a component prop, to an expression
+9. v-text -> same as {{ interpolation }} and updates the element's textContent

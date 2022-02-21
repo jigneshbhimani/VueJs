@@ -1,0 +1,41 @@
+- Creating a list with Range v-for:
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="4.0.0-alpha.5.bootstrap-flex.min.css">
+    <title>v-for</title>
+</head>
+
+<body class="container">
+
+<div id="app1">
+    <h2>Example of range v-for</h2>
+    <ul class="list-group">
+        <li v-for="num in 5" class="list-group-item">                              -> v-for used in this line
+            {{ num }} times 5 equals {{ num * 5 }}.
+        </li>
+    </ul>
+</div>
+
+<script src="vue.js"></script>
+<script type="text/javascript">
+    new Vue({
+        el: '#app1'
+    })
+</script>
+</body>
+</html>
+
+
+
+
+
+- Output:
+Example of range v-for
+1 times 5 equals 5.
+2 times 5 equals 10.
+3 times 5 equals 15.
+4 times 5 equals 20.
+5 times 5 equals 25.

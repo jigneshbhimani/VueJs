@@ -1,0 +1,157 @@
+Composing with components in Vue Js
+- what is component
+- make Home component
+- make child component for Home component
+
+
+1) Make first Home component:
+
+- src/components/Home.vue:
+        <template>  
+            <div>               
+                <h1>Home Component</h1>  
+            </div>
+        </template>
+
+        <script>
+        export default {
+            name: 'Home',
+
+        }
+        </script>
+
+        <style scoped>
+        div{
+            background-color: #dde5ec;
+            height: 500px;
+        }
+        </style>
+
+
+2) Import Home component in App.vue:
+
+- src/App.vue:
+        <template>
+            <div id="app">
+                <Home />                        // Use Home component
+            </div>
+        </template>
+
+        <script>
+        import Home from "./components/Home.vue";           // import Home component
+        export default {
+            name: "App",
+            components: {
+                Home,                                   // export Home component
+            },
+        };
+        </script>
+
+3) Make second Users component:
+
+- src/components/Users.vue:
+        <template>  
+            <div class="users">               
+                <h1>Users Component</h1>  
+            </div>
+        </template>
+
+        <script>
+        export default {
+            name: 'Users',
+
+        }
+        </script>
+
+        <style scoped>
+        .users{
+            background-color: antiquewhite;
+            width: 300px;
+            height: 100px;
+            padding: 42px;
+            margin: 20px;
+        }
+        </style>
+
+
+4) Make thrid Products component:
+
+- src/components/Products.vue:
+        <template>  
+            <div class="users">               
+                <h1>Products Component</h1>  
+            </div>
+        </template>
+
+        <script>
+        export default {
+            name: 'Products',
+
+        }
+        </script>
+
+        <style scoped>
+        .users{
+            background-color: antiquewhite;
+            width: 300px;
+            height: 100px;
+            padding: 42px;
+            margin: 20px;
+        }
+        </style>
+
+
+5) User component and Products component import in Home component:
+
+- src/components/Home.vue:
+        <template>  
+            <div>               
+                <h1>Home Component</h1>  
+                <Users />                                   // use Users component
+                <Products />                                // use Products component
+            </div>
+        </template>
+
+        <script>
+        import Users from "./Users.vue";                    // import Home component
+        import Products form "./Products.vue";              // import Products component
+        export default {
+            name: 'Home',
+            components:{
+                Users,                              // export Users component
+                Products,                           // export Products component
+            }
+        }
+        </script>
+
+        <style scoped>
+        div{
+            background-color: #dde5ec;
+            height: 500px;
+        }
+        </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

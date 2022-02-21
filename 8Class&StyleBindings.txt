@@ -1,0 +1,119 @@
+Class and Style Bindings
+- How to use class
+- How to use style
+- Class and style with object
+- Class and style with array
+- Class with condition
+- Style with property
+
+1) How to use class and style?
+
+- src/components/Home.vue:
+        <template>  
+            <div>      
+                <h1 class="homestyle">Class and Style Bindings</h1>                         // add this line
+                <h1 v-bind:style="{{color:'blue}}">Style Bindings</h1>                      // add this line        
+            </div>
+        </template>
+
+        <script>
+        export default {
+            name: 'Home',
+            
+        }
+        </script>
+
+        <style scoped>
+        .homestyle{                                                                         // add this style
+            color: orange;                              
+        }
+        </style>
+
+
+2) How to use class binding with object?
+
+- src/components/Home.vue:
+        <template>  
+            <div>      
+                <h1 class="homestyle">Class and Style Bindings</h1>                         
+                <h1 v-bind:style="{{color:'blue}}">Style Bindings</h1>  
+                <h1 v-bind:class="{display:show,displayColor:show}">Class Binding with Object</h1>                // If {display:true} than console me class create hoga, If {display:show} then console me class create nahi hoga   
+            </div>
+        </template>
+
+        <script>
+        export default {
+            name: 'Home',
+            data(){
+                return {
+                    show:true                               // if show:true then show brown color, otherwise show:false then don't show brown color
+                }
+            }
+        }
+        </script>
+
+        <style scoped>
+        .homestyle{                                                                         // add this style
+            color: orange;                              
+        }
+        .display{
+            background-color:brown;
+        }
+        </style>
+
+
+3) How to use class binding with array?
+
+- src/components/Home.vue:
+        <template>  
+            <div>      
+                <h1 class="homestyle">Class and Style Bindings</h1>                         
+                <h1 v-bind:style="{{color:colorKey}}">Style Bindings</h1>  
+                <h1 v-bind:class="{display:show,displayColor:show}">Class Binding with Object</h1>  
+                <h1 v-bind:class="[aclass]">Class Binding with Array</h1>                                   // array ma levanu
+            </div>
+        </template>
+
+        <script>
+        export default {
+            name: 'Home',
+            data(){
+                return {
+                    show:true,
+                    aclass: 'arrayClass',                               // As a property define karvu padse 
+                    colorKey: 'red'
+                }
+            }
+        }
+        </script>
+
+        <style scoped>
+        .homestyle{                                                                         
+            color: orange;                              
+        }
+        .display{
+            background-color:brown;
+        }
+        .arrayClass{                                                    // add this style
+            background-color: cyan;
+        }
+        </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

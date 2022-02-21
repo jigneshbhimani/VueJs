@@ -1,0 +1,60 @@
+- Loop over an array of objects with v-for:
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>vue js directive params</title>
+    <link rel="stylesheet" href="4.0.0-alpha.5.bootstrap-flex.min.css">
+</head>
+
+<body class="container">
+
+<div id="app1">
+    <h2>Some great songs!</h2>
+    <ul class="list-group">
+        <li v-for="(song, index) in songs" class="list-group-item">                         -> v-for used in this line
+            {{ index + 1}}. {{ song.artist }} sings "{{ song.name }}"
+        </li>
+    </ul>
+</div>
+
+<script src="vue.js"></script>
+<script type="text/javascript">
+    new Vue({
+        el: '#app1',
+        data: {
+            songs: [
+                {
+                    name: "I Love It",
+                    artist: "Icona Pop"
+                },
+                {
+                    name: "Gangnam Style",
+                    artist: "PSY"
+                },
+                {
+                    name: "Hotline Bling",
+                    artist: "Drake"
+                },
+                {
+                    name: "The Marriage of Figaro",
+                    artist: "Mozart"
+                },
+            ]
+        }
+    })
+</script>
+</body>
+</html>
+
+
+
+
+
+- Output:
+Some great songs!
+1. Icona Pop sings "I Love It"
+2. PSY sings "Gangnam Style"
+3. Drake sings "Hotline Bling"
+4. Mozart sings "The Marriage of Figaro"

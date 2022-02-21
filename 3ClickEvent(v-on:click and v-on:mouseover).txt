@@ -1,0 +1,51 @@
+Click Event
+Define method property
+define function 
+make button and click event
+how to pass params with event
+
+
+) How to define method property? 
+
+- src/components/Home.vue: (1st Method use console.log)
+        <template>  
+            <div>               
+                <h1>Hello from Home component</h1>
+                <button v-on:click="hello">Call Hello Function</button>                         // add this line         // click event        // create button  
+            </div>
+        </template>
+
+        <script>
+        export default {
+            name: 'Home',
+            methods: {                                                                           // add method property
+                hello(){                                                                        // define function hello()
+                    console.log('Hello World');
+                }
+            }                
+        }
+        </script>
+
+- src/components/Home.vue: (2nd Method use alert)
+        <template>  
+            <div>               
+                <h1>Hello from Home component</h1>
+                <button v-on:mouseove="hello('Hello World')">Call Hello Function</button>                         // add this line     // mouseove event         
+            </div>
+        </template>
+
+        <script>
+        export default {
+            name: 'Home',
+            methods: {                                                                           // add method property
+                hello(data){                                                                    // define parameter (data)                              
+                    alert(data) 
+                }
+            }                
+        }
+        </script>
+
+    
+- Event 
+    v-on:click - Button par click karva thi 
+    v-on:mouseove - Mouse button par lai jai tyare

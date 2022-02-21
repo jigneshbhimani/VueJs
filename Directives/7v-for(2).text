@@ -1,0 +1,46 @@
+- Loop over an array with v-for:
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>v-for over an array</title>
+    <link rel="stylesheet" href="4.0.0-alpha.5.bootstrap-flex.min.css">
+</head>
+
+<body class="container">
+
+<div id="app1">
+    <h2>Name some songs!</h2>
+    <ul class="list-group">
+        <li v-for="song in songs" class="list-group-item">                      -> v-for used in this line
+            {{ song }}
+        </li>
+    </ul>
+</div>
+
+<script src="vue.js"></script>
+<script type="text/javascript">
+    new Vue({
+        el: '#app1',
+        data: {
+            songs: [
+                "I Love It",
+                "Gangnam Style",
+                "Hotline Bling"
+            ]
+        }
+    })
+</script>
+</body>
+</html>
+
+
+
+
+
+- Output:
+Name some songs!
+I Love It
+Gangnam Style
+Hotline Bling

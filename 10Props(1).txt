@@ -1,0 +1,91 @@
+Send Props Parent to child
+- What is Props
+- Make a component
+- Define Props
+- Pass Props
+- Access Props
+
+1) Make a component
+
+- src/components/Child.vue:
+        <template>
+            <div>
+                <h1>Child Component</h1>
+                <h3>{{name}}</h3>               // pass props array
+            </div>
+        </template>
+
+        <script>
+        export default {
+            name: 'Child',
+            props: ['name']                         // make a props and pass as an array
+        }
+        </script>
+
+2) Import in App.vue
+
+- src/App.vue:
+        <template>
+            <div id="app">
+                <h1>Props</h1>
+                <Child name="Jignesh Bhimani" />            // How to access this name in component?    
+            </div>
+        </template>
+
+        <script>
+        import Child from './components/Child.vue'
+        export default {
+            name: 'App',
+            components:{
+                Chilld
+            }
+        }
+        </script>
+
+
+3) How to get data from props?
+
+- src/App.vue:
+        <template>
+        <div id="app">
+            <h1>Props</h1>
+            <Child v-bind:users="users" />
+        </div>
+        </template>
+
+        <script>
+        import Child from './components/Child.vue'
+        export default {
+            name: 'App',
+            components:{
+                Chilld
+            },
+            data(){
+                return{
+                    users:[
+                        {name:'Jignesh Bhimani', age:23},
+                        {name:'Karan Parmar', age:23},
+                        {name:'Parth Solanki', age:30},
+                        {name:'Ankit Vora', age:22},
+                    ]
+                }
+            }
+        }
+        </script>
+
+- src/components/Child.vue:
+        <template>
+            <div>
+                <h1>Child Component</h1>
+                <h3 v-for="user in users" :key="user.name">
+                    {{user.name}} --- {{user.age}}
+                </h3>               
+            </div>
+        </template>
+
+        <script>
+        export default {
+            name: 'Child',
+            props: ['users']                         
+        }
+        </script>

@@ -1,0 +1,46 @@
+What is data binding
+make a component
+Define property
+Make data binding
+Data Binding with multi-line
+
+1) Make a component DataBind.vue
+
+- src/components/DataBind.vue:
+        <template>  
+            <div>               
+                <p style="white-space:pre-line">{{message}}</p>                        // white-space:pre-line atle new line lakhi to new line ma message show kare
+                <textarea type="text" v-model="message">                               // Input me jo bhi likhege Wo message show hoga       
+            </div>
+        </template>
+
+        <script>
+        export default {
+            name: 'DataBind',
+            data(){
+                return{
+                    message: 'Hi'
+                }
+            }
+        }
+        </script>
+
+2) Import DataBind.vue component in App.vue
+
+- src/App.vue:
+        <template>
+            <div id="app">
+                <h1>Data Binding in VueJs</h1>
+                <Home />        
+            </div>
+        </template>
+
+        <script>
+        import DataBind from "./components/DataBind.vue";        
+        export default {
+            name: "App",
+            components: {
+                DataBind,         
+            },
+        };
+        </script>
